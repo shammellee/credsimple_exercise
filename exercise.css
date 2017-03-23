@@ -1,0 +1,263 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video
+{
+  border:0;
+  font-size:100%;
+  font:inherit;
+  margin:0;
+  padding:0;
+  vertical-align:baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section{display:block}
+body{line-height:1}
+ol, ul{list-style:none}
+blockquote, q{quotes:none}
+blockquote:before, blockquote:after, q:before, q:after
+{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+
+body
+{
+  background-color:#17202C;
+  padding-bottom:80px;
+}
+
+.hidden
+{
+  display:none;
+}
+
+
+/**********/
+/* HEADER */
+/**********/
+#header_container
+{
+  box-shadow:0px 0px 50px 50px #17202C;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1;
+}
+
+#header_content
+{
+  background-color:#17202C;
+  border-bottom:1px solid #2A3545;
+  padding:2.3em 0 0.5em;
+}
+
+#header_content__inner
+{
+  align-items:center;
+  display:flex;
+  justify-content:space-between;
+}
+
+.header_interaction_blocker
+{
+  float:left;
+  height:63px;
+  position:absolute;
+  width:100%;
+}
+
+.content_container{margin:auto;max-width:800px;padding:0 0.6em;}
+
+#logo
+{
+  display:inline-block;
+  font:1.8em 'Kanit',sans-serif;
+  letter-spacing:0.02em;
+  user-select:none;
+}
+
+.logo__word_part_1{color:#FFFFFF;font-weight:200;}
+.logo__word_part_2{color:#B85C54;font-weight:600;margin-left:-0.4em;}
+
+#button__filter_expired
+{
+  background-color:transparent;
+  border:1px solid #B85C54;
+  border-radius:4px;
+  cursor:pointer;
+  outline:none;
+  padding:0.45em 1.3em 0.25em;
+  width:13.2em;
+}
+
+#button__filter_expired:active{border-color:#9A514C;}
+#button__filter_expired:active .button_label__filter_expired{color:#9A514C;}
+
+
+.button_label__filter_expired
+{
+  color:#B85C54;
+  font:1.3em 'Hind',sans-serif;
+}
+
+.button_label__filter_expired:before
+{
+  background:url(img/gfx_sprite.png) no-repeat 0px -32px;
+  content:'';
+  display:block;
+  float:left;
+  height:16px;
+  margin-right:8px;
+  position:relative;
+  top:2px;
+  width:16px;
+  z-index:0;
+}
+/**************/
+/* END HEADER */
+/**************/
+
+
+/***************/
+/* RECORD LIST */
+/***************/
+#record_list{margin-top:9.5em;}
+/***************/
+/* END RECORD LIST */
+/***************/
+
+
+/********************/
+/* RECORD LIST ITEM */
+/********************/
+.list_item
+{
+  border-bottom:1px solid #000000;
+}
+
+.list_item_container__main
+{
+  background-color:#212A38;
+  border-left:3px solid #212A38;
+  cursor:pointer;
+  padding:0.8em 1em;
+  transition:75ms ease-out;
+}
+
+.list_item__selected .list_item_container__main
+{
+  background-color:#2A3545;
+  border-left-color:#2A3545;
+} 
+
+.list_item__selected .list_item_label__name{color:#B3BDCA}
+
+.list_item__expired .list_item_container__main{border-left-color:#B85C54;}
+
+.list_item_container__main:hover
+{
+  background-color:#2A3545;
+  border-left-color:#2A3545;
+  transition:0s linear;
+}
+
+.list_item__expired .list_item_container__main:hover{border-left-color:#B85C54;}
+
+.list_item_image__avatar
+{
+  background:url(img/gfx_sprite.png) no-repeat 0px 0px;
+  display:inline-block;
+  height:32px;
+  vertical-align:middle;
+  width:32px;
+}
+
+.list_item_label__name
+{
+  color:#7A8BA6;
+  font:200 1.1em/1.4 'Changa',sans-serif;
+  margin-left:0.8em;
+}
+
+.list_item_label__record_expired
+{
+  color:#B85C54;
+  display:inline-block;
+  font:0.9em/2.5 'Hind',sans-serif;
+  float:right;
+}
+
+.list_item_label__record_expired:before
+{
+  background:url(img/gfx_sprite.png) no-repeat 0px -32px;
+  content:'';
+  display:block;
+  float:left;
+  height:16px;
+  margin-right:8px;
+  position:relative;
+  top:8px;
+  width:16px;
+  z-index:0;
+}
+/************************/
+/* END RECORD LIST ITEM */
+/************************/
+
+
+/******************/
+/* RECORD DETAILS */
+/******************/
+.list_item__expired .detail_table__dea_number{border-left:3px solid #603A3E;}
+
+.list_item_container__detail
+{
+  background-color:#1C2430;
+  display:flex;
+  flex-flow:row wrap;
+  height:4em;
+  overflow:hidden;
+  transition:height 100ms ease-out;
+}
+
+.list_item_container__detail__hidden
+{
+  height:0;
+}
+
+.detail_table
+{
+  display:block;
+  flex:1 auto;
+}
+
+.detail_table__npi
+,.detail_table__provider_id
+,.detail_table__expiration_date
+{
+  border-left:1px solid #151B27;
+}
+
+.detail_table_cell__header
+{
+  color:#3E4C64;
+  font:600 1em/1.2 'Changa',sans-serif;
+  letter-spacing:0.01em;
+  padding:14px 14px 0 14px;
+}
+
+.detail_table_cell__value
+{
+  color:#7A8BA6;
+  font:200 0.9em/1.2 'Changa',sans-serif;
+  letter-spacing:0.05em;
+  padding:0 14px 14px 14px;
+}
+
+.list_item__expired .detail_table__expiration_date .detail_table_cell__value{color:#B85C54;}
+/**********************/
+/* END RECORD DETAILS */
+/**********************/

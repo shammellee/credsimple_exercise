@@ -186,6 +186,7 @@ body
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  transition:max-width 200ms ease-out;
 }
 
 /*iPhone 5*/
@@ -245,8 +246,6 @@ and (orientation:portrait)
 /******************/
 /* RECORD DETAILS */
 /******************/
-.list_item__expired .detail_table__dea_number{border-left:3px solid #603A3E;}
-
 .list_item_container__detail
 {
   background-color:#1C2430;
@@ -257,22 +256,10 @@ and (orientation:portrait)
   transition:height 100ms ease-out;
 }
 
-.list_item_container__detail__hidden
-{
-  height:0;
-}
-
 .detail_table
 {
   display:block;
   flex:1 auto;
-}
-
-.detail_table__npi
-,.detail_table__provider_id
-,.detail_table__expiration_date
-{
-  border-left:1px solid #151B27;
 }
 
 .detail_table_cell__header
@@ -291,7 +278,37 @@ and (orientation:portrait)
   padding:0 14px 14px 14px;
 }
 
+.list_item__expired .detail_table__dea_number{border-left:3px solid #603A3E;}
+
+.detail_table__npi
+,.detail_table__provider_id
+,.detail_table__expiration_date
+{
+  border-left:1px solid #151B27;
+}
+
 .list_item__expired .detail_table__expiration_date .detail_table_cell__value{color:#B85C54;}
+
+/*Make detail tables responsive*/
+@media only screen
+and (max-width:736px)
+and (orientation:portrait)
+{
+  .list_item_container__detail{height:8.2em;}
+  .list_item_container__detail{flex-direction:column;}
+  .detail_table__npi
+  ,.detail_table__expiration_date
+  {
+    border-top:1px solid #151B27;
+  }
+  .detail_table__npi{border-left:none;}
+  .list_item__expired .detail_table__npi{border-left:3px solid #603A3E;}
+}
+
+.list_item_container__detail__hidden
+{
+  height:0;
+}
 /**********************/
 /* END RECORD DETAILS */
 /**********************/

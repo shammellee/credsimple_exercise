@@ -198,6 +198,7 @@ var cs = function(records)
         ;
 
     list_item.classList.add('list_item');
+    list_item.setAttribute('title',first_records[i].name);
     if(!valid){list_item.classList.add('list_item__expired','hidden');}
 
     // MAIN CONTAINER

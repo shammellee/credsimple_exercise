@@ -7,7 +7,7 @@
     <link rel='stylesheet' type='text/css' href='exercise.css'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Changa:200,600|Hind|Kanit:200,600'>
   </head>
-  <body>
+  <body class='theme__dark'>
     <div id='header_container'>
       <div id='header_content'>
         <div id='header_content__inner' class='content_container'>
@@ -15,12 +15,17 @@
             <span class='logo__word_part_1'>Simple</span>
             <span class='logo__word_part_2'>DEA</span>
           </span>
-          <button id='button__filter_expired'>
+          <button id='button__filter_expired' class='button__outlined'>
             <span class='button_label__filter_expired'>Show Expired</span>
           </button>
         </div>
       </div>
-      <div class='header_interaction_blocker'></div>
+    </div>
+
+    <div id='record_options_container'>
+      <div id='record_options_content' class='content_container'>
+        <button id='button__theme_toggle' class='button__outlined'>Show Light Theme</button>
+      </div>
     </div>
 
     <ul id='record_list' class='content_container'></ul>

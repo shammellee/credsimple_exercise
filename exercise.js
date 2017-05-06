@@ -10,6 +10,7 @@ var cs = function(records)
       ,months              = 'Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec'.split(':')
       ,selected_list_item  = null
       ,filter_expired_btn  = document.getElementById('button__filter_expired')
+      ,theme_toggle_btn    = document.getElementById('button__theme_toggle')
       ;
 
 
@@ -85,6 +86,27 @@ var cs = function(records)
       filter_expired_label.textContent = 'Show Expired';
     }
 
+  }
+
+  function toggle_theme(event)
+  {
+    var theme_root   = document.body
+        ,dark_theme  = {class_name:'theme__dark',text:'Dark'}
+        ,light_theme = {class_name:'theme__light',text:'Light'}
+        ,button      = event.currentTarget;
+        ;
+
+    if(theme_root.classList.contains(dark_theme.class_name))
+    {
+      theme_root.classList.remove(dark_theme.class_name);
+      theme_root.classList.add(light_theme.class_name);
+      button.textContent = 'Show ' + dark_theme.text + ' Theme';
+    }else
+    {
+      theme_root.classList.remove(light_theme.class_name);
+      theme_root.classList.add(dark_theme.class_name);
+      button.textContent = 'Show ' + light_theme.text + ' Theme';
+    }
   }
 
   function create_detail_table(header_text,value,class_name)
@@ -170,9 +192,6 @@ var cs = function(records)
     }
   }
 
-  // Toggle expired records filter
-  filter_expired_btn.addEventListener('click',toggle_expired);
-
   // BUILD RECORD LIST ITEMS
   for(var i = 0,len = first_records.length;i < len;i++)
   {
@@ -203,7 +222,7 @@ var cs = function(records)
 
     // MAIN CONTAINER
     main_container.classList.add('list_item_container__main');
-    main_container.addEventListener('click',select_list_item);
+    main_container.addEventListener('click',select_list_item,false);
 
     // Avatar
     avatar.classList.add('list_item_image__avatar');
@@ -216,13 +235,16 @@ var cs = function(records)
 
     // Expired
     expired_label.textContent = 'Expired';
+
     if(valid)
     {
       expired_label.classList.add('hidden');
     }else
     {
       expired_label.classList.add('list_item_label__record_expired');
+      detail_container.classList.add('list_item_container__detail__expired');
     }
+
     main_container.appendChild(expired_label);
     list_item.appendChild(main_container);
 
@@ -242,6 +264,13 @@ var cs = function(records)
   }
 
   record_list.appendChild(list_item_container);
+
+  // EVENTS
+  // Toggle theme
+  theme_toggle_btn.addEventListener('click',toggle_theme,false);
+
+  // Toggle expired records filter
+  filter_expired_btn.addEventListener('click',toggle_expired,false);
 
   // ----------------
   // END CONFIGURE UI

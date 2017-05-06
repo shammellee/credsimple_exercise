@@ -3,7 +3,7 @@
 var cs = function(records)
 {
   var max_record_count     = 30
-      ,first_records       = null
+      ,first_records       = []
       ,today               = new Date()
       ,record_list         = document.getElementById('record_list')
       ,list_item_container = document.createDocumentFragment()

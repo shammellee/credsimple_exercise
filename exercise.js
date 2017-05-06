@@ -5,13 +5,19 @@ var cs = function(records)
   var max_record_count     = 30
       ,first_records       = []
       ,today               = new Date()
-      ,record_list         = document.getElementById('record_list')
+      ,record_list         = get_by_id('record_list')
       ,list_item_container = document.createDocumentFragment()
       ,months              = 'Jan:Feb:Mar:Apr:May:Jun:Jul:Aug:Sep:Oct:Nov:Dec'.split(':')
       ,selected_list_item  = null
-      ,filter_expired_btn  = document.getElementById('button__filter_expired')
-      ,theme_toggle_btn    = document.getElementById('button__theme_toggle')
+      ,filter_expired_btn  = get_by_id('button__filter_expired')
+      ,theme_toggle_btn    = get_by_id('button__theme_toggle')
       ;
+
+
+  function get_by_id(id)
+  {
+    return document.getElementById(id);
+  }
 
 
   // ---------------

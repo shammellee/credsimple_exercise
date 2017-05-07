@@ -9,22 +9,44 @@
   </head>
   <body class='theme__dark'>
     <div id='header_container'>
-      <div id='header_content'>
-        <div id='header_content__inner' class='content_container'>
-          <span id='logo'>
-            <span class='logo__word_part_1'>Simple</span>
-            <span class='logo__word_part_2'>DEA</span>
-          </span>
-          <button id='button__filter_expired' class='button__outlined'>
-            <span class='button_label__filter_expired'>Show Expired</span>
-          </button>
-        </div>
+      <div class='content_container'>
+        <span id='logo'>
+          <span class='logo__word_part_1'>Simple</span>
+          <span class='logo__word_part_2'>DEA</span>
+        </span>
       </div>
     </div>
 
     <div id='record_options_container'>
       <div id='record_options_content' class='content_container'>
-        <button id='button__theme_toggle' class='button__outlined'>Show Light Theme</button>
+
+        <div class='record_options_row record_options_row__level_1'>
+          <button id='button__theme_toggle' class='button__outlined'>Show Light Theme</button>
+
+          <button id='button__filter_expired' class='button__outlined'>
+            <span class='button_label__filter_expired'>Show Expired</span>
+          </button>
+        </div>
+
+        <div class='record_options_row record_options_row__level_2'>
+          <div>
+            <label for='checkbox__dea_number_toggle' class='labelled_checkbox'>
+              <input id='checkbox__dea_number_toggle' class='labelled_checkbox__checkbox' type='checkbox' checked>
+              <span class='labelled_checkbox__text'>DEA #</span>
+            </label>
+
+            <label for='checkbox__npi_toggle' class='labelled_checkbox'>
+              <input id='checkbox__npi_toggle' class='labelled_checkbox__checkbox' type='checkbox' checked>
+              <span class='labelled_checkbox__text'>NPI</span>
+            </label>
+
+            <label for='checkbox__provider_id_toggle' class='labelled_checkbox'>
+              <input id='checkbox__provider_id_toggle' class='labelled_checkbox__checkbox' type='checkbox' checked>
+              <span class='labelled_checkbox__text'>Provider ID</span>
+            </label>
+          </div>
+        </div>
+
       </div>
     </div>
 

@@ -1,6 +1,8 @@
 "use strict";
 
-var cs = function(records)
+var app = {};
+
+app.start = function(records)
 {
   var max_record_count     = 30
       ,first_records       = []
@@ -11,6 +13,12 @@ var cs = function(records)
       ,selected_list_item  = null
       ,filter_expired_btn  = get_by_id('button__filter_expired')
       ,theme_toggle_btn    = get_by_id('button__theme_toggle')
+      ,dea_number_toggle   = get_by_id('checkbox__dea_number_toggle')
+      ,npi_toggle          = get_by_id('checkbox__npi_toggle')
+      ,provider_id_toggle  = get_by_id('checkbox__provider_id_toggle')
+      ,dea_number_tables   = []
+      ,npi_tables          = []
+      ,provider_id_tables  = []
       ;
 
 
@@ -112,6 +120,25 @@ var cs = function(records)
       theme_root.classList.remove(light_theme.class_name);
       theme_root.classList.add(dark_theme.class_name);
       button.textContent = 'Show ' + light_theme.text + ' Theme';
+    }
+  }
+
+  function batch_toggle_class_name(node_array,class_name)
+  {
+    var size = node_array.length;
+
+    if(node_array[0].classList.contains(class_name))
+    {
+      for(var i = 0; i < size; i++)
+      {
+        node_array[i].classList.remove(class_name);
+      }
+    }else
+    {
+      for(var i = 0; i < size; i++)
+      {
+        node_array[i].classList.add(class_name);
+      }
     }
   }
 
@@ -264,6 +291,10 @@ var cs = function(records)
     detail_container.appendChild(provider_id_table);
     detail_container.appendChild(exp_date_table);
 
+    dea_number_tables.push(dea_number_table);
+    npi_tables.push(npi_table);
+    provider_id_tables.push(provider_id_table);
+
     list_item.appendChild(detail_container);
 
     list_item_container.appendChild(list_item);
@@ -275,6 +306,22 @@ var cs = function(records)
   // Toggle theme
   theme_toggle_btn.addEventListener('click',toggle_theme,false);
 
+  // Toggle record details
+  dea_number_toggle.addEventListener('change',function(event)
+  {
+    batch_toggle_class_name(dea_number_tables,'hidden');
+  },false);
+
+  npi_toggle.addEventListener('change',function(event)
+  {
+    batch_toggle_class_name(npi_tables,'hidden');
+  },false);
+
+  provider_id_toggle.addEventListener('change',function(event)
+  {
+    batch_toggle_class_name(provider_id_tables,'hidden');
+  },false);
+
   // Toggle expired records filter
   filter_expired_btn.addEventListener('click',toggle_expired,false);
 
@@ -285,5 +332,5 @@ var cs = function(records)
 
 window.onload = (function()
 {
-  cs_api.getData(cs);
+  cs_api.getData(app.start);
 })();

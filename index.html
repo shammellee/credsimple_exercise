@@ -3,9 +3,21 @@
   <head>
     <meta charset='utf-8'>
     <title>SimpleDEA by Shammel</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1, user-scalable=no, minimal-ui'
+    />
+    <meta name='apple-mobile-web-app-capable' content='yes'/>
+    <meta name='apple-mobile-web-app-title' content='SimpleDEA'/>
+    <meta
+      name='apple-mobile-web-app-status-bar-style'
+      content='black-translucent'
+    />
     <link rel='stylesheet' type='text/css' href='exercise.css'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Changa:200,600|Hind|Kanit:200,600'>
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css?family=Changa:200,600|Hind|Kanit:200,600'
+    >
   </head>
   <body class='theme__dark'>
     <div id='header_container'>
@@ -21,38 +33,85 @@
       <div id='record_options_content' class='content_container'>
 
         <div class='record_options_row record_options_row__level_1'>
-          <button id='button__theme_toggle' class='button__outlined'>Show Light Theme</button>
+          <button
+            class='button__outlined'
+            id='button__theme_toggle'
+          >Show light theme</button>
 
           <button id='button__filter_expired' class='button__outlined'>
-            <span class='button_label__filter_expired'>Show Expired</span>
+            <span class='button_label__filter_expired'>Exclude expired</span>
           </button>
         </div>
 
         <div class='record_options_row record_options_row__level_2'>
-          <div>
-            <label for='checkbox__dea_number_toggle' class='labelled_checkbox'>
-              <input id='checkbox__dea_number_toggle' class='labelled_checkbox__checkbox' type='checkbox' checked>
+          <div class='record_options_detail_toggle_container'>
+            <label class='labelled_checkbox' for='checkbox__dea_number_toggle'>
+              <input
+                checked
+                class='labelled_checkbox__checkbox'
+                id='checkbox__dea_number_toggle'
+                type='checkbox'
+              >
               <span class='labelled_checkbox__text'>DEA #</span>
             </label>
 
-            <label for='checkbox__npi_toggle' class='labelled_checkbox'>
-              <input id='checkbox__npi_toggle' class='labelled_checkbox__checkbox' type='checkbox' checked>
+            <label class='labelled_checkbox' for='checkbox__npi_toggle'>
+              <input
+                checked
+                class='labelled_checkbox__checkbox'
+                id='checkbox__npi_toggle'
+                type='checkbox'
+              >
               <span class='labelled_checkbox__text'>NPI</span>
             </label>
 
-            <label for='checkbox__provider_id_toggle' class='labelled_checkbox'>
-              <input id='checkbox__provider_id_toggle' class='labelled_checkbox__checkbox' type='checkbox' checked>
+            <label class='labelled_checkbox' for='checkbox__provider_id_toggle'>
+              <input
+                checked
+                class='labelled_checkbox__checkbox'
+                id='checkbox__provider_id_toggle'
+                type='checkbox'
+              >
               <span class='labelled_checkbox__text'>Provider ID</span>
             </label>
           </div>
+
+          <input
+            class='textfield__outlined'
+            id='record_filter'
+            maxlength='100'
+            placeholder='Search by name'
+            type='text'
+          >
         </div>
 
       </div>
     </div>
 
-    <ul id='record_list' class='content_container'></ul>
+    <div id='message__no_records'>No Records</div>
+
+    <ul id='record_list' class='content_container invisible'></ul>
 
     <script src='csUtils.js'></script>
     <script src='exercise.js'></script>
+
+    <script type="text/javascript">
+      var sc_project    = 11337452
+          ,sc_invisible = 1
+          ,sc_security  = "70698b0e"
+          ; 
+    </script>
+    <script type='text/javascript' src='//www.statcounter.com/counter/counter.js'></script>
+    <noscript>
+      <div class="statcounter">
+        <a title="web analytics" href="http://statcounter.com/" target="_blank">
+          <img
+            class="statcounter"
+            src="//c.statcounter.com/11337452/0/70698b0e/1/"
+            alt="web statistics"
+          >
+        </a>
+      </div>
+    </noscript>
   </body>
 </html>

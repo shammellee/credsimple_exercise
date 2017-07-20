@@ -471,5 +471,5 @@ app.start = function(records)
 
 window.onload = (function()
 {
-  cs_api.getData(app.start);
+  simple_dea.get_data(app.start);
 })();
